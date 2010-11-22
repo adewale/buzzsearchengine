@@ -1,0 +1,5 @@
+This is the simplest possible web app using the new discovery-based APIs in order to create a simple search front-end for Buzz.
+
+It also gave me an excuse to fiddle with CSS3 and the WebFonts API.
+
+You can see it in action at: http://buzzsearchengine.appspot.com/
