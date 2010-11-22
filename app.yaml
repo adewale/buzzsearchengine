@@ -1,0 +1,13 @@
+application: buzzsearchengine
+version: production
+runtime: python
+api_version: 1
+
+handlers:
+- url: /css
+  static_dir: css
+- url: /.*
+  script: main.py
+
+builtins:
+  - appstats: on

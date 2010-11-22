@@ -1,0 +1,23 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link href='http://fonts.googleapis.com/css?family=IM+Fell+English+SC&subset=latin' rel='stylesheet' type='text/css'>
+	<title>BuzzSearch</title></head>
+
+<body>
+<div align="center">
+<h1>BuzzSearch</h1>
+
+<form method="get" action="/search">
+<input name="q" placeholder="Search Buzz" type="search" size="100" value="{{ q }}" required>
+<input class="input" type="submit" value="Search">	
+</form>
+</div>
+
+<div>
+	{% for result in results %}
+	
+	{% endfor %}
+</div>
+</body>
+</html>

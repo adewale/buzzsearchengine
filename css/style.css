@@ -1,0 +1,16 @@
+h1 { 
+	font-family: 'IM Fell English SC', arial, serif;
+	/*
+	Clever CSS effect from: http://twitter.com/#!/mathowie/statuses/5387020843094016 */
+	-webkit-text-stroke: 1px #F9C22F;
+	font-size: 74px;
+	line-height: 48px;
+	padding-top: 20px;
+	
+	/* Minimize space after logo */
+	margin-bottom: 10px;
+}
+
+.input {
+	width: 100px;
+}
