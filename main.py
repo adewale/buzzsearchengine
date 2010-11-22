@@ -35,6 +35,9 @@ class Result(object):
 		self.actor_profile = actor_profile
 		self.content = content
 
+        # content is often a duplicate of title with no additional text
+        self.is_useful_content = content.strip() != title.strip()
+
 
 class SearchHandler(webapp.RequestHandler):
 	def __search(self, query):
