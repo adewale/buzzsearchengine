@@ -3,11 +3,11 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link href='http://fonts.googleapis.com/css?family=IM+Fell+English+SC&subset=latin' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans&subset=latin' rel='stylesheet' type='text/css'>
-	<title>BuzzSearch</title></head>
+	<title>Buzz Search Engine</title></head>
 
 <body>
 <div align="center">
-	<h1>BuzzSearch</h1>
+	<h1>Buzz Search Engine</h1>
 
 	<form method="get" action="/search">
 		<input name="q" placeholder="Search Buzz" type="search" size="100" value="{{ q }}" required>
@@ -16,6 +16,10 @@
 </div>
 
 <div>
+	{% if no_results %}
+	<b class="search_failed">There were no results for your query.</b>
+	{% endif %}
+	
 	<ol>
 	{% for result in results %}
 	<li>
@@ -23,7 +27,6 @@
 		{{result.content}}<br>
 		<i>Shared by: <a href="{{result.actor_profile}}">{{result.actor}}</a></i>
 	</li>
-	
 
 	{% endfor %}
 	</ol>

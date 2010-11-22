@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from google.appengine.api.urlfetch import DownloadError
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp import template
 from google.appengine.ext.webapp import util
@@ -36,11 +37,19 @@ class Result(object):
 
 
 class SearchHandler(webapp.RequestHandler):
+	def __search(self, query):
+		buzz_wrapper=simple_buzz_wrapper.SimpleBuzzWrapper()
+		try:
+			json = buzz_wrapper.search(query)
+			if json.has_key('items'):
+				return json['items']
+			return []
+		except DownloadError:
+			return []
+		
 	def get(self):
 		query = self.request.get("q")
-		
-		buzz_wrapper=simple_buzz_wrapper.SimpleBuzzWrapper()
-		items = buzz_wrapper.search(query)['items']
+		items = self.__search(query)
 		logging.info("There were %s results" % len(items))
 		
 		results = []
@@ -53,7 +62,8 @@ class SearchHandler(webapp.RequestHandler):
 			result = Result(permalink, title, actor, actor_profile, content)
 			results.append(result)
 		
-		template_values = {'q':query, 'results':results}
+		no_results = len(results) == 0
+		template_values = {'q':query, 'results':results, 'no_results':no_results}
 		
 		path = os.path.join(os.path.dirname(__file__), 'results.html')
 		self.response.out.write(template.render(path, template_values, debug=True))

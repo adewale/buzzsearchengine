@@ -19,3 +19,7 @@ li {
 	font-family:'Droid Sans', arial, serif;
 	padding-bottom: 10px;
 }
+
+.search_failed {
+	font-family:'Droid Sans', arial, serif;
+}
