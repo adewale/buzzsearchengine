@@ -1,0 +1,10 @@
+Add a list of common search operators on the front page. Consider making it an include so that it can be used on the front page and also on the results page in situations where there are no results that match the user's search terms. Perhaps I should just link to: http://www.google.com/buzz/101962829696981365403/7ZTUAe2z26H/some-BUZZ-search-info-for-the-masses-if-you-are
+
+Add a JoinBuzz/FollowMeOnBuzz button to the front page.
+
+Consider adding a Follow button to the names of the people who have shared each item in the search results.
+
+Add a profile search page which brings back profiles including the profile images and a Follow button.
+
+Add a topic-based profile search which brings back profiles including the profile images and a Follow button.
+
