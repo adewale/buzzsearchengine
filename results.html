@@ -20,12 +20,14 @@
 	<b class="search_failed">There were no results for your query.</b>
 	{% endif %}
 	
-	<ol>
+	<ol class="results">
 	{% for result in results %}
 	<li>
-		<b><a href="{{result.permalink}}"> {{result.title}}</a></b><br>
-		{{result.content}}<br>
-		<i>Shared by: <a href="{{result.actor_profile}}">{{result.actor}}</a></i>
+		<a class="result-link" href="{{result.permalink}}"> {{result.title}}</a><br>
+		{% if result.is_useful_content %}
+			{{result.content}}<br>
+		{% endif %}
+		<cite><a href="{{result.actor_profile}}">{{result.actor}}</a></cite>
 	</li>
 
 	{% endfor %}
