@@ -19,6 +19,7 @@ from google.appengine.ext.webapp import util
 
 import logging
 import os
+import settings
 import simple_buzz_wrapper
 
 class MainPageHandler(webapp.RequestHandler):
@@ -37,7 +38,7 @@ class Result(object):
 
 class SearchHandler(webapp.RequestHandler):
 	def __search(self, query):
-		buzz_wrapper=simple_buzz_wrapper.SimpleBuzzWrapper()
+		buzz_wrapper=simple_buzz_wrapper.SimpleBuzzWrapper(api_key=settings.API_KEY)
 		try:
 			results = buzz_wrapper.search(query)
 			return results

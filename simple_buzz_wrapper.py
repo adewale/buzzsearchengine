@@ -12,17 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 import buzz_gae_client
-import settings
 import oauth_handlers
 import logging
 
 class SimpleBuzzWrapper(object):
   "Simple client that exposes the bare minimum set of common Buzz operations"
 
-  def __init__(self, user_token=None):
+  def __init__(self, user_token=None, api_key=None, consumer_key='anonymous', consumer_secret='anonymous'):
     if user_token:
       self.current_user_token = user_token
-    self.builder = buzz_gae_client.BuzzGaeClient(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
+    self.builder = buzz_gae_client.BuzzGaeClient(consumer_key, consumer_secret, api_key=api_key)
 
   def search(self, query, user_token=None, max_results=10):
     if query is None or query.strip() is '':
