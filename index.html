@@ -2,16 +2,29 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link href='http://fonts.googleapis.com/css?family=IM+Fell+English+SC&subset=latin' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans&subset=latin' rel='stylesheet' type='text/css'>
 	<title>Buzz Search Engine</title></head>
 
 <body>
-<div align="center">
-<h1>Buzz Search Engine</h1>
+<div id="header" align="center">
+	<h1>Buzz Search Engine</h1>
 
-<form method="get" action="/search">
-<input name="q" placeholder="Search Buzz" type="search" size="100" required autofocus>
-<input class="input" type="submit" value="Search">	
-</form>
+	<form method="get" action="/search">
+		<input name="q" placeholder="Search Buzz" type="search" size="100" value="{{ q }}" required>
+		<input class="input" type="submit" value="Search">	
+	</form>
 </div>
+
+<!-- These exist just to create empty left and right columns -->
+<div id="left"></div>
+<div id="right"></div>
+
+<div id="middle">
+</div>
+
+<div id="footer" align="center">
+<small>The code for this site is available from: <a href="https://github.com/adewale/buzzsearchengine">https://github.com/adewale/buzzsearchengine</a> under the Apache 2.0 license.</small>
+</div>
+
 </body>
 </html>
