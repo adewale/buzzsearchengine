@@ -6,7 +6,7 @@
 	<title>Buzz Search Engine</title></head>
 
 <body>
-<div align="center">
+<div id="header" align="center">
 	<h1>Buzz Search Engine</h1>
 
 	<form method="get" action="/search">
@@ -15,23 +15,30 @@
 	</form>
 </div>
 
-<div>
+<!-- These exist just to create empty left and right columns -->
+<div id="left"></div>
+<div id="right"></div>
+
+<div id="middle">
 	{% if no_results %}
-	<b class="search_failed">There were no results for your query.</b>
+	<p id="search_failed">There were no results for your query.</p>
 	{% endif %}
 	
-	<ol class="results">
+	<ol>
 	{% for result in results %}
 	<li>
-		<a class="result-link" href="{{result.permalink}}"> {{result.title}}</a><br>
-		{% if result.is_useful_content %}
-			{{result.content}}<br>
-		{% endif %}
+		<p>
+		<a href="{{result.permalink}}"> {{result.title}}</a><br>
 		<cite><a href="{{result.actor_profile}}">{{result.actor}}</a></cite>
+		</p>
 	</li>
 
 	{% endfor %}
 	</ol>
+</div>
+
+<div id="footer" align="center">
+<small>The code for this site is available from: <a href="https://github.com/adewale/buzzsearchengine">https://github.com/adewale/buzzsearchengine</a> under the Apache 2.0 license.</small>
 </div>
 
 </body>

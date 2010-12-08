@@ -28,15 +28,11 @@ class MainPageHandler(webapp.RequestHandler):
 
 
 class Result(object):
-	def __init__(self, permalink, title, actor, actor_profile, content):
+	def __init__(self, permalink, title, actor, actor_profile):
 		self.permalink = permalink
 		self.title = title
 		self.actor = actor
 		self.actor_profile = actor_profile
-		self.content = content
-
-        	# content is often a duplicate of title with no additional text
-        	self.is_useful_content = content.strip() != title.strip()
 
 
 class SearchHandler(webapp.RequestHandler):
@@ -59,8 +55,7 @@ class SearchHandler(webapp.RequestHandler):
 			title = item['title']
 			actor = item['actor']['name']
 			actor_profile = item['actor']['profileUrl']
-			content = item['object']['content']
-			result = Result(permalink, title, actor, actor_profile, content)
+			result = Result(permalink, title, actor, actor_profile)
 			results.append(result)
 		
 		no_results = len(results) == 0

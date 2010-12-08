@@ -5,23 +5,63 @@ h1 {
 	-webkit-text-stroke: 1px #F9C22F;
 	font-size: 74px;
 	line-height: 48px;
-	padding-top: 20px;
-	
-	/* Minimize space after logo */
-	margin-bottom: 10px;
+	padding-top: 1px;
+	margin-bottom: 0px;
 }
 
-.input {
+body {
+	font-family:'Droid Sans', arial, serif;
+	margin: 0px;
+    padding: 0px;
+}
+
+div#header {
+	clear: both;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	margin-top: -25px;
+}
+
+div#left {
+	float: left;
+	width: 150px;
+}
+
+div#right {
+	float: right;
+	width: 150px;
+}
+
+div#middle {
+	padding: 0px 160px 5px 160px;
+}
+
+div#footer {
+	clear: both;
+	/* Ensure that the footer always sticks to the bottom of the page */
+	width: 100%;
+	position:fixed;
+	left: 0px;
+	bottom: 0px;
+	
+	padding: 10px;
+	background-color: #eeeeee;
+}
+
+li p {
+	font-family:'Droid Sans', arial, serif;
+	font-style: normal;
+}
+
+form .input {
 	width: 100px;
 }
 
-.results {
-    list-style: none;
-}
-
-.results li {
-	font-family:'Droid Sans', arial, serif;
+li {
+	font-family: 'IM Fell English SC', arial, serif;
+	font-style: italic;
 	margin-bottom: 14px;
+	text-align:left;
 }
 
 cite a {
@@ -30,6 +70,10 @@ cite a {
     font-style: normal;
 }
 
-.search_failed {
-	font-family:'Droid Sans', arial, serif;
+p#search_failed {
+	font-style: bold;
+}
+
+small {
+	font-size: 10px;
 }
