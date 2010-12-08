@@ -35,18 +35,16 @@ class Result(object):
 		self.actor_profile = actor_profile
 		self.content = content
 
-        # content is often a duplicate of title with no additional text
-        self.is_useful_content = content.strip() != title.strip()
+        	# content is often a duplicate of title with no additional text
+        	self.is_useful_content = content.strip() != title.strip()
 
 
 class SearchHandler(webapp.RequestHandler):
 	def __search(self, query):
 		buzz_wrapper=simple_buzz_wrapper.SimpleBuzzWrapper()
 		try:
-			json = buzz_wrapper.search(query)
-			if json.has_key('items'):
-				return json['items']
-			return []
+			results = buzz_wrapper.search(query)
+			return results
 		except DownloadError:
 			return []
 		

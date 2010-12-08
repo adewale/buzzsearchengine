@@ -17,7 +17,7 @@ import oauth_handlers
 import logging
 
 class SimpleBuzzWrapper(object):
-  "Simple client that exposes the bare minimum set of Buzz operations"
+  "Simple client that exposes the bare minimum set of common Buzz operations"
 
   def __init__(self, user_token=None):
     if user_token:
@@ -25,10 +25,14 @@ class SimpleBuzzWrapper(object):
     self.builder = buzz_gae_client.BuzzGaeClient(settings.CONSUMER_KEY, settings.CONSUMER_SECRET)
 
   def search(self, query, user_token=None, max_results=10):
+    if query is None or query.strip() is '':
+      return None
     api_client = self.builder.build_api_client()
 
-    # TODO(ade) Implement search functionality
-    return api_client.activities().search(q=query, max_results=max_results).execute()
+    json = api_client.activities().search(q=query, max_results=max_results).execute()
+    if json.has_key('items'):
+      return json['items']
+    return []
 
   def post(self, sender, message_body):
     if message_body is None or message_body.strip() is '':
