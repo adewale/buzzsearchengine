@@ -2,9 +2,10 @@ Add a list of common search operators on the front page. Consider making it an i
 
 Add a JoinBuzz/FollowMeOnBuzz button to the front page.
 
-Consider adding a Follow button to the names of the people who have shared each item in the search results.
+Add a Follow button to the names of the people who have shared each item in the search results.
 
 Add a profile search page which brings back profiles including the profile images and a Follow button.
 
 Add a topic-based profile search which brings back profiles including the profile images and a Follow button.
 
+Let people login with Buzz by going through the hybrid OpenId/OAuth flow (that should handle cookies for me) then show a strip at the top with their name + email + profile photo. Then when a logged in user searches use their access token to access the Buzz search API so that they access search features that require authorisation. Make this a discreet feature with a small login button in the top right of the screen.
